@@ -19,7 +19,7 @@ class Profile(models.Model):
     Profile_photo = models.ImageField(upload_to = 'images/',blank=True)
     Bio = models.TextField(max_length = 50,null = True)
     user = models.OneToOneField(User,on_delete=models.CASCADE, primary_key=True)
-    rate = models.ManyToManyField('Project', related_name='image',max_length=30)
+    score = models.ManyToManyField('Project', related_name='image',max_length=30)
 
     def save_profile(self):
         self.save()
@@ -42,7 +42,7 @@ class Profile(models.Model):
 (upload_to = 'images/',blank=True)
     Bio = models.TextField(max_length = 50,null = True)
     user = models.OneToOneField(User,on_delete=models.CASCADE, primary_key=True)
-    rate = models.ManyToManyField('Project', related_name='image',max_length=30)
+    score = models.ManyToManyField('Project', related_name='image',max_length=30)
 
     def save_profile(self):
         self.save()
@@ -101,4 +101,32 @@ class Project(models.Model):
     def find_project_id(cls, id):
         identity = Project.objects.get(pk=id)
         return identity
+
+class Score(models.Model):
+    design = models.CharField(max_length=30)
+    usability = models.CharField(max_length=8)
+    creativity = models.CharField(max_length=8,blank=True,null=True)
+    average = models.FloatField(max_length=8)
+    user = models.ForeignKey(User,null = True)
+    project = models.ForeignKey(Project,related_name='score',null=True)
+
+
+    def __str__(self):
+        return self.design
+
+    class Meta:
+        ordering = ['-id']
+
+    def save_score(self):
+        self.save()
+
+    @classmethod
+    def get_score(cls, profile):
+        score = Score.objects.filter(Profile__pk = profile)
+        return score
+    
+    @classmethod
+    def get_all_scores(cls):
+        scores = Score.objects.all()
+        return scores
 
