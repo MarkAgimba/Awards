@@ -13,7 +13,7 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         exclude = ['user','score']
 
-class RateForm(forms.ModelForm):
+class ScoreForm(forms.ModelForm):
     class Meta:
         model =Score
         exclude= ['user','project']
