@@ -20,4 +20,8 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',include('mawards.urls')),
+    path('accounts/', include('registration.backends.simple.urls')),
+    path('logout/', views.logout, {"next_page": '/'}),
+    path('api-token-auth/', obtain_auth_token),
 ]
