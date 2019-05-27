@@ -28,7 +28,7 @@ SECRET_KEY = '%ho=i$ueloz95ne3str)@7oy_m=2bnz6#a6oxp@1nh7-=9m0b^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mawards.herokuapp.com'']
+ALLOWED_HOSTS = ['mawards.herokuapp.com']
 
 
 # Application definition
