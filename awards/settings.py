@@ -35,8 +35,12 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'mawards',
+    # 'bootstrap3',
     'bootstrap4',
     'rest_framework.authtoken',
+    'imagekit',
+    'django_registration',
+    # 'rest_framework.authorization',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -81,15 +85,17 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     )
-
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'awards',
+        'USER': 'mark',
+        'PASSWORD': '12345'
     }
 }
 
@@ -135,6 +141,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+#Login Redirecting to Home
+LOGIN_REDIRECT_URL = '/'
 
 
 MEDIA_URL = '/media/'

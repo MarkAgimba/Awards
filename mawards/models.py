@@ -39,10 +39,10 @@ class Profile(models.Model):
         userprof = Profile.objects.filter(user__username__icontains = name)
         return userprof
 
-(upload_to = 'images/',blank=True)
-    Bio = models.TextField(max_length = 50,null = True)
-    user = models.OneToOneField(User,on_delete=models.CASCADE, primary_key=True)
-    score = models.ManyToManyField('Project', related_name='image',max_length=30)
+# (upload_to = 'images/',blank=True)
+#     Bio = models.TextField(max_length = 50,null = True)
+#     user = models.OneToOneField(User,on_delete=models.CASCADE, primary_key=True)
+#     score = models.ManyToManyField('Project', related_name='image',max_length=30)
 
     def save_profile(self):
         self.save()
@@ -67,7 +67,7 @@ class Project(models.Model):
     project_name = models.CharField(max_length =10)
     project_url = models.CharField(max_length =50)
     location = models.CharField(max_length =10)
-    profile = models.ForeignKey(Profile, null = True,related_name='project')
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True,related_name='project')
     pub_date = models.DateTimeField(auto_now_add=True, null=True)
     user= models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     
@@ -107,8 +107,8 @@ class Score(models.Model):
     usability = models.CharField(max_length=8)
     creativity = models.CharField(max_length=8,blank=True,null=True)
     average = models.FloatField(max_length=8)
-    user = models.ForeignKey(User,null = True)
-    project = models.ForeignKey(Project,related_name='score',null=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,null = True)
+    project = models.ForeignKey(Project,on_delete=models.CASCADE,related_name='score',null=True)
 
 
     def __str__(self):
