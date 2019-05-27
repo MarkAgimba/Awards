@@ -15,8 +15,8 @@
                     <h5><strong>{{project.project_name}}</strong></h5>
                     <p>{{project.location}}</p>
                     <p class="card-text">{{project.project.user.username}}</p>
-                    <p class="card-text" style="font-size: 20px;"><small class="text-muted">{{project.pub_date}}</small></p>
-                    <a href="{% url 'score' project.id %}"><button class="btn btn-outline-primary">Vote Now</button></a>
+                    <p class="card-text" style="font-size: 40px;"><small class="text-muted">{{project.pub_date}}</small></p>
+                    <a href="{% url 'score' project.id %}"><button class="btn btn-outline-primary">Give Score</button></a>
                 </div>
             </div>
         </div>

@@ -122,7 +122,7 @@ def score_project(request,project_id):
             rating.project = project
             rating.user = request.user
             rating.save()
-            return redirect('vote',project_id)
+            return redirect('score',project_id)
     else:
         scoreform = ScoreForm()
     return render(request,'score.html',locals())

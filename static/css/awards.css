@@ -231,7 +231,7 @@ body{
     margin-right: 10px;
   }
   .home-content{
-      background-image: url(../images/image.jpeg) !important;
+      background-image: url(https://uwaterloo.ca/english/sites/ca.english/files/uploads/images/awards2_0.jpg) !important;
       background-attachment: fixed;
       width:100%;
       background-size: cover;
