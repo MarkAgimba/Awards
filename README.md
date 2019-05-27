@@ -15,10 +15,11 @@ from this point the user can access an online page with the specified gallery, a
 + User should be able to view my profile page.
 ```
 
-##Live Site
+# Live Site
+
 https://mawards.herokuapp.com/
 
-##Prerequisites
+# Prerequisites
 * Python
 * Pip
 * Django
